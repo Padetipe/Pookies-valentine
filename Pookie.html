@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will You Be My Valentine?</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;  /* Allows the page to expand */
+      overflow: auto;  /* Enables scrolling if content exceeds viewport */
+      margin: 0;
+      color: #fff;
+      text-align: center;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      position: relative;
+      margin: auto;
+      max-width: 90%; /* Make it responsive */
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    #yes {
+      background: #ff6f61;
+      color: white;
+    }
+    #no {
+      background: #6b5b95;
+      color: white;
+    }
+    button:hover {
+      transform: scale(1.1);
+    }
+    .hidden {
+      display: none;
+    }
+    #countdown {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    color: #ff4081;
+}
+
+.number {
+    font-size: 40px;
+    font-weight: bold;
+    color: #e91e63;
+    background: #fff3f7;
+    padding: 5px 10px;
+    border-radius: 8px;
+    margin: 0 5px;
+    display: inline-block;
+}
+
+.gallery {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.gallery h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.gallery-container img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.gallery-container img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#main img {
+    width: 250px; /* Adjust the width as needed */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 10px; /* Optional: adds rounded corners */
+    display: block;
+    margin: 0 auto;
+}
+
+ 
+  </style>
+</head>
+<body>
+    <div class="container">
+        <div id= "main" class="sunt">
+            <img src="C:\Users\SMC\Desktop\for pookie\images\main1.png" alt="Beautiful Moment 1">
+        </div>
+      <h1>Will You Be My Valentine?</h1>
+      <div class="buttons">
+        <button id="yes">Yes!</button>
+        <button id="no">No</button>
+      </div>
+      <div id="specialMessage" class="hidden special-message">
+        <p>My Dearest Amarachi,</p>
+        <p>i just want you to know that, </p>
+        <p>Every moment with you feels like a dream come true. You light up my world in ways I never thought possible.</p>
+        <p>You are and will always be my best friend, my sister, my teacher, my partner, and the love 💖 of my life.</p>
+        <p>I appreciate you for all you've done for me, for all the beautiful memories we've shared, and for everytime you stood by me and never made me felt alone.</p>
+        <p>Thank you Pookie 💖</p>
+        <p>I can't wait to spend this Valentine's Day and every day after with you. 💖</p>
+        <p>Forever yours,</p>
+        <p>Your Dearest Papito</p>
+      </div>
+      <div id="countdown" class="hidden countdown"></div>
+
+      <div id="gallery" class="hidden gallery">
+        <h2>Our Beautiful Moments 💖</h2>
+        <div class="gallery-container">
+            <img src="C:\Users\SMC\Desktop\for pookie\images\love.jpg" alt="Beautiful Moment 1">
+            <img src="C:\Users\SMC\Desktop\for pookie\images\mnu.jpg" alt="Beautiful Moment 2">
+            <img src="C:\Users\SMC\Desktop\for pookie\images\us.png" alt="Beautiful Moment 3">
+            <img src="C:\Users\SMC\Desktop\for pookie\images\us2.jpg" alt="Beautiful Moment 4">
+            <img src="C:\Users\SMC\Desktop\for pookie\images\us3.jpg" alt="Beautiful Moment 5">
+            <img src="C:\Users\SMC\Desktop\for pookie\images\us4.jpg" alt="Beautiful Moment 6">
+            <img src="C:\Users\SMC\Desktop\for pookie\images\us5.jpg" alt="Beautiful Moment 7">
+            <img src="C:\Users\SMC\Desktop\for pookie\images\us6.jpg" alt="Beautiful Moment 8">
+            <img src="C:\Users\SMC\Desktop\for pookie\images\us7.jpg" alt="Beautiful Moment 9">
+            <img src="C:\Users\SMC\Desktop\for pookie\images\meet.jpg" alt="Beautiful Moment 10">
+            <img src="C:\Users\SMC\Desktop\for pookie\images\meet1.jpg" alt="Beautiful Moment 11">
+        </div>
+    </div>
+    
+    </div>
+  
+    <script>
+      const yesButton = document.getElementById('yes');
+      const noButton = document.getElementById('no');
+      const specialMessage = document.getElementById('specialMessage');
+      const countdownElement = document.getElementById('countdown');
+      const mainImage = document.querySelector('#main img');
+      // Fixed image for "Yes"
+      const yesImage = "C:/Users/SMC/Desktop/for pookie/images/happy.jpg";  
+
+
+      yesButton.addEventListener('click', () => {
+        mainImage.src = yesImage; // Set the fixed happy image
+        // Show the special message
+        specialMessage.classList.remove('hidden');
+        // Show the countdown timer
+        countdownElement.classList.remove('hidden');
+        // Start the countdown
+        startCountdown();
+      });
+
+
+      // Array of image paths for the "No" response
+const noImages = [
+    "C:/Users/SMC/Desktop/for pookie/images/sad1.png",
+    "C:/Users/SMC/Desktop/for pookie/images/sad2.png",
+    "C:/Users/SMC/Desktop/for pookie/images/sad3.png",
+    "C:/Users/SMC/Desktop/for pookie/images/sad4.png",
+    "C:/Users/SMC/Desktop/for pookie/images/sad5.png",
+    "C:/Users/SMC/Desktop/for pookie/images/sad6.png",
+    "C:/Users/SMC/Desktop/for pookie/images/sad7.png",
+    "C:/Users/SMC/Desktop/for pookie/images/sad8.png",
+    "C:/Users/SMC/Desktop/for pookie/images/sad9.png"
+];
+
+let imageIndex = 0;
+
+// When the user hovers over "No"
+noButton.addEventListener('mouseover', () => {
+    // Change the main image
+    mainImage.src = noImages[imageIndex]; 
+
+    // Move to the next image in the array
+    imageIndex = (imageIndex + 1) % noImages.length; 
+});
+  
+      noButton.addEventListener('mouseover', () => {
+        // Move the "No" button to a random position on the screen
+        const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+        const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+        noButton.style.position = 'absolute';
+        noButton.style.left = `${x}px`;
+        noButton.style.top = `${y}px`;
+      });
+  
+      
+  
+      function startCountdown() {
+        // Set the date for Valentine's Day
+        const valentinesDay = new Date("February 14, 2025 00:00:00").getTime();
+  
+        // Update the countdown every second
+        const countdownInterval = setInterval(() => {
+          const now = new Date().getTime();
+          const distance = valentinesDay - now;
+  
+          // Calculate days, hours, minutes, and seconds
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+          // Display the countdown
+          countdownElement.innerHTML = `
+            <p>Countdown to Valentine's Day:</p>
+            <p>
+                <span class="number">${days}</span>d 
+                <span class="number">${hours}</span>h 
+                <span class="number">${minutes}</span>m 
+                <span class="number">${seconds}</span>s
+            </p>
+        `;
+  
+          // If the countdown is over, display a message
+          if (distance < 0) {
+            clearInterval(countdownInterval);
+            countdownElement.innerHTML = "Happy Valentine's Day, my love! 💖";
+          }
+        }, 1000);
+      }
+
+      const gallery = document.getElementById('gallery');
+
+yesButton.addEventListener('click', () => {
+    specialMessage.classList.remove('hidden');
+    countdownElement.classList.remove('hidden');
+    gallery.classList.remove('hidden');  // Show gallery
+    startCountdown();
+});
+
+    </script>
+  </body>
+  </html>
